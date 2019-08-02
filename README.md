@@ -1,6 +1,7 @@
 # ST-CLSTM
 Code of paper: Exploiting temporal consistency for real-time video depth estimation (ICCV 2019)
 
+Some video results can be found at \url{https://youtu.be/B705k8nunLU}
 The code and pretrained models will be released soon.
 
 Requirements:
