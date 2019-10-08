@@ -1,0 +1,30 @@
+The raw dataset contains the raw image and accelerometer dumps from the kinect. The RGB and Depth camera sampling rate lies between 20 and 30 FPS (variable over time). While the frames are not synchronized, the timestamps for each of the RGB, depth and accelerometer files are included as part of each filename and can be synchronized to produce a continuous video using the get_synched_frames.m function in the Toolbox.
+
+The dataset is divided into different folders which correspond to each ’scene’ being filmed, such as ‘living_room_0012′ or ‘office_0014′. The file hierarchy is structured as follows:
+
+/
+../bedroom_0001/
+../bedroom_0001/a-1294886363.011060-3164794231.dump
+../bedroom_0001/a-1294886363.016801-3164794231.dump
+                  ...
+../bedroom_0001/d-1294886362.665769-3143255701.pgm
+../bedroom_0001/d-1294886362.793814-3151264321.pgm
+                  ...
+../bedroom_0001/r-1294886362.238178-3118787619.ppm
+../bedroom_0001/r-1294886362.814111-3152792506.ppm
+
+Files that begin with the prefix a- are the accelerometer dumps. These dumps are written to disk in binary and can be read with file get_accel_data.mex. Files that begin with the prefix r- and d- are the frames from the RGB and depth cameras, respectively. Since no preprocessing has been performed, the raw depth images must be projected onto the RGB coordinate space into order to align the images.
+
+The matlab toolbox has several useful functions for handling the data.
+
+    camera_params.m - Contains the camera parameters for the Kinect used to capture the data.
+    crop_image.m – Crops an image to use only the area when the depth signal is projected.
+    fill_depth_colorization.m – Fills in the depth using Levin et al's Colorization method.
+    fill_depth_cross_bf.m - Fills in the depth using a cross-bilateral filter at multiple scales.
+    get_accel_data.m - Returns the accelerometer parameters at a specific moment in time.
+    get_instance_masks.m – Returns a set of binary masks, one for each object instance in an image.
+    get_rgb_depth_overlay.m – Returns a visualization of the RGB and Depth alignment.
+    get_synched_frames.m - Returns a set of synchronized RGB and Depth frames that can be used to produced RGBD videos of each scene.
+    get_timestamp_from_filename.m – Returns the timestamp from the raw dataset filenames. This is useful for sampling the RAW video dumps at even intervals in time.
+    project_depth_map.m – Projects the Depth map from the Kinect on the RGB image plane.
+
