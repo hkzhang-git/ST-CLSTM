@@ -3,15 +3,12 @@ Code of paper: Exploiting temporal consistency for real-time video depth estimat
 
 Some video results can be found at https://youtu.be/B705k8nunLU
 
-The code and pretrained models will be released soon.
-
 Requirements:
 Pytorch>=0.4.0
 Python=3.6
 matlab (for converting raw data, dump and pgm files to jpg and png files)
 
 Data preprocess:
-
 Data preprocess consists of three steps, including 
 1) In raw data, the RGB and corresponding depth data are saved as .dump and .pgm file, respectively. The first step is 
 converting raw RGB and Depth data into .jpg and .png files. In this step, synchronization, alignment and padding 
@@ -27,20 +24,18 @@ python main_clips.py --test_loc 'end' --fl 5
 
 3) Creating data_list for dataloader:
 
-cd CLSTM_Depth_Estimation_v1/data/
+cd CLSTM_Depth_Estimation_master/data/
 python create_list_nyu_v2_3D.py
 
-Training:
-cd CLSTM_Depth_Estimation_v1
-python main_raw_CLSTM.py
+4) The preprocessed test sets corresponding to 3, 4 and 5 frames input can be download from https://drive.google.com/file/d/1g4jjWzf4Bcz44cQq2brgYiZvuK-5xKga/view?usp=sharing ,  https://drive.google.com/file/d/1KLc_qtcLnEz_ckefhE5Xtl279fau6TWx/view?usp=sharing , https://drive.google.com/file/d/179PVUtCM927cOckP8zVkmFwlr1OhnR0z/view?usp=sharing .
 
 
 Evaluation:
-cd CLSTM_Depth_Estimation_v1/prediction/
+cd CLSTM_Depth_Estimation_master/prediction/
 python prediction_CLSTM_main.py
 
 Demo:
-cd CLSTM_Depth_Estimation_v1/
+cd CLSTM_Depth_Estimation_master/
 python demo_main.py
 
 Datasets:
