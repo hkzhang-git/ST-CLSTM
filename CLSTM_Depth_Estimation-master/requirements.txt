@@ -2,5 +2,5 @@ matplotlib==3.0.3
 torchvision==0.2.2
 torch==1.0.0
 numpy==1.16.2
-opencv_python==4.1.0.25
+opencv_python==4.2.0.32
 Pillow==6.2.0
